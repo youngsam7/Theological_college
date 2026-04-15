@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Covenant Theological College forms faithful scholars, pastors, and Christian leaders." />
+  <title>Covenant Theological College | Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+<div id="site-header"></div>
+<main>
+  <section class="hero">
+    <div class="container">
+      <p class="section-kicker">Called. Formed. Sent.</p>
+      <h1>Prepare for ministry that carries both conviction and credibility.</h1>
+      <p>Covenant Theological College equips leaders with biblical depth, theological precision, and pastoral courage to serve the Church in a demanding age.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/admissions/apply.html">Begin Your Application</a>
+        <a class="btn btn-secondary" href="/academics.html">Explore Academics</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-3" data-skeleton-target>
+      <article class="card metric"><h3>53+</h3><p>Years of theological training</p></article>
+      <article class="card metric"><h3>28</h3><p>Partner churches & ministries</p></article>
+      <article class="card metric"><h3>Accredited</h3><p>Regional and ecclesiastical bodies</p></article>
+    </div>
+  </section>
+
+  <section class="section"><div class="container">
+    <p class="section-kicker">Programs</p><h2 class="section-title">Academic pathways with real-world ministry formation.</h2>
+    <div id="programGrid" class="grid grid-3"></div>
+  </div></section>
+
+  <section class="section"><div class="container grid grid-2">
+    <article class="card" data-aos="fade-up"><p class="section-kicker">Leadership Spotlight</p><h3>President Dr. Elias Ward</h3><p>With over 20 years in pastoral formation, Dr. Ward leads a faculty committed to doctrinal fidelity and spiritual maturity.</p><a href="/about.html" class="btn btn-secondary">Meet leadership</a></article>
+    <article class="card" data-aos="fade-up"><p class="section-kicker">Sermon Preview</p><h3>Holy Calling in a Noisy Age</h3><iframe class="media-player" src="https://www.youtube.com/embed/ScMzIvxBSi4" title="Sermon preview" allowfullscreen loading="lazy"></iframe></article>
+  </div></section>
+
+  <section class="section"><div class="container">
+    <p class="section-kicker">Student Stories</p><h2 class="section-title">Trusted by students, pastors, and ministry families.</h2>
+    <div id="testimonialGrid" class="grid grid-2"></div>
+  </div></section>
+
+  <section class="section"><div class="container grid grid-2">
+    <article class="card"><p class="section-kicker">Upcoming Events</p><h3>Conference & chapel calendar</h3><div id="eventPreview"></div><a href="/news-events.html" class="btn btn-secondary">View full calendar</a></article>
+    <article class="cta-band"><div><h3>Answer your calling with confidence.</h3><p>Admissions counselors are ready to guide your next step.</p></div><a class="btn btn-primary" href="/admissions/apply.html">Apply now</a></article>
+  </div></section>
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+  const { programs, testimonials, events } = window.SITE_DATA;
+  programGrid.innerHTML = programs.map(p => `<article class="card" data-aos="fade-up"><h3>${p.title}</h3><p>${p.desc}</p><a class="btn btn-secondary" href="/${p.href}">Read details</a></article>`).join('');
+  testimonialGrid.innerHTML = testimonials.map(t => `<article class="card"><p>“${t.quote}”</p><strong>${t.name}</strong></article>`).join('');
+  eventPreview.innerHTML = events.slice(0,2).map(e => `<p><strong>${e.title}</strong><br>${e.date} · ${e.location}</p>`).join('');
+</script>
+</body>
+</html>
